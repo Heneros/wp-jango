@@ -18,19 +18,17 @@ add_action('wp_enqueue_scripts', 'test_scripts');
 function test_setup(){
     add_theme_support('post-thumbnails');
     add_image_size('my-thumb', 600, 400 );
+    register_nav_menus( array(
+      'header_menu1' => 'Menu in navbar 1',
+      'footer_menu2' => 'Menu in footer 2',
+    ));
 }
 add_action( 'after_setup_theme', 'test_setup' );
 
 
 add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
 function my_navigation_template( $template, $class ){
-    /*
-    Вид базового шаблона:
-    <nav class="navigation %1$s" role="navigation">
-        <h2 class="screen-reader-text">%2$s</h2>
-        <div class="nav-links">%3$s</div>
-    </nav>
-    */
+
 
     return '
 	<nav class="navigation" role="navigation">
@@ -39,7 +37,7 @@ function my_navigation_template( $template, $class ){
 	';
 }
 
-// выводим пагинацию
+
 the_posts_pagination( array(
     'end_size' => 2,
 ) );
