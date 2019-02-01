@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/Test_Menu.php';
 
 
 function test_scripts(){
