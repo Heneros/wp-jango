@@ -41,3 +41,14 @@ function my_navigation_template( $template, $class ){
 the_posts_pagination( array(
     'end_size' => 2,
 ) );
+
+function test_widgets_init(){
+    register_sidebar(array(
+        'name' => 'Sidebar right',
+        'id' => 'right-sidebar',
+        'description' => 'Area for widgets in sidebar the right',
+
+    ));
+}
+
+add_action('widgets_init', 'test_widgets_init');

@@ -22,6 +22,7 @@
         'theme_location' => 'header_menu1',
         'container_class' => 'collaspse navbar-collapse',
         'menu_class' => 'navbar-nav mr-auto',
+        'container_id' => 'navbarSupportedContent',
         'walker' => new Test_Menu(),
     ));
      ?>
