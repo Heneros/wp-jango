@@ -7,10 +7,19 @@
 
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class() ?> >
+<?php if(is_home()):  ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+<div class="header-image" style="background: url(<?php echo get_custom_header()->url; ?>) center no-repeat; background-size: cover; height: 50vh;"></div>
+<?php endif; ?>
+
+<nav class="navbar navbar-expand-lg  bg-light">
+
+    <?php if(has_custom_logo()): the_custom_logo(); ?>
+<?php else:?>
+<a class="navbar-brand" href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a>
+<?php endif;?>
+
     <span>
         <?php bloginfo('description'); ?>
     </span>
