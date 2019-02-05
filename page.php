@@ -1,34 +1,40 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying all pages
+ *
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages
+ * and that other 'pages' on your WordPress site may use a
+ * different template.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package clean
+ */
 
+get_header();
+?>
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="row">
-                    <?php while ( have_posts() ) : the_post(); ?>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
 
-                        <div class="col-md-12">
-                            <div class="card">
-                                <?php if(has_post_thumbnail()): ?>
-                                    <?php the_post_thumbnail();?>
-                                <?php else: ?>
-                                    <img src="https://picsum.photos/1275/638" alt="">
-                                <?php endif; ?>
-                                <div class="card-body">
-                                    <h1 class="card-title"><?php the_title(); ?></h1>
-                                    <p class="card-text"><?php the_content(''); ?></p>
-                                </div>
-                            </div>
-                        </div>
+		<?php
+		while ( have_posts() ) :
+			the_post();
 
-                    <?php endwhile; ?>
-                </div>
-            </div>
-            <?php get_sidebar(); ?>
-        </div>
-    </div>
+			get_template_part( 'template-parts/content', 'page' );
 
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
 
+		endwhile; // End of the loop.
+		?>
 
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
-<?php get_footer(); ?>
+<?php
+get_sidebar();
+get_footer();
