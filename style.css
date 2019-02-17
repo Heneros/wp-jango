@@ -1,8 +1,8 @@
 /*!
 Theme Name: clean
-Theme URI: http://underscores.me/
+Theme URI: https://webformyself.com/
 Author: Underscores.me
-Author URI: http://underscores.me/
+Author URI: https://webformyself.com/
 Description: Description
 Version: 1.0.0
 License: GNU General Public License v2 or later
@@ -842,8 +842,7 @@ a:hover, a:active {
 	display: block;
 }
 
-.post,
-.page {
+.hentry {
 	margin: 0 0 1.5em;
 }
 

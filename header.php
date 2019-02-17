@@ -33,13 +33,12 @@
                         <a class="navbar-brand" href="<?php echo home_url('/'); ?>"><?php bloginfo('name'); ?></a>
                     </div>
                     <div id="fh5co-navbar" class="navbar-collapse collapse">
-                        <?php 
-                       wp_nav_menu(array(
-                           'theme_location' => 'menu-1',
-                           'menu_class' => 'nav navbar-nav navbar-right'
-                       )); 
+                        <?php
+                        wp_nav_menu( array(
+                            'theme_location' => 'menu-1',
+                            'menu_class' => 'nav navbar-nav navbar-right',
+                        ) );
                         ?>
-                       
                     </div>
                 </div>
             </div>

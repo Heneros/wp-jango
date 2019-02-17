@@ -2,9 +2,14 @@
 get_header();
 ?>
 
+<?php if( get_theme_mod('clean_home_category') ): ?>
     <div id="fh5co-portfolio">
 
-        <?php if ( have_posts() ) : $i = 1; while ( have_posts() ) : the_post(); ?>
+        <?php $query = new WP_Query( array(
+            'category_name' => get_theme_mod('clean_home_category'),
+        ) ); ?>
+
+        <?php if ( $query->have_posts() ) : $i = 1; while ( $query->have_posts() ) : $query->the_post(); ?>
             <?php
             if( has_post_thumbnail() ){
                 $img_url = get_the_post_thumbnail_url();
@@ -26,8 +31,18 @@ get_header();
         <?php else: ?>
             <!-- no posts found -->
         <?php endif; ?>
+        <?php wp_reset_postdata(); ?>
 
     </div>
+<?php endif; ?>
+
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php the_content(); ?>
+<?php endwhile; ?>
+    <!-- post navigation -->
+<?php else: ?>
+    <!-- no posts found -->
+<?php endif; ?>
 
 <?php
 get_footer();
