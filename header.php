@@ -52,7 +52,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1 class="intro-lead"><?php bloginfo('description'); ?></h1>
+                    <h1 class="intro-lead">
+                    <?php if(is_single() || (is_page() && !is_front_page() ) ):?>
+                        <?php else: ?>
+                    <?php bloginfo('description'); ?>
+                        <?php endif; ?>
+                        </h1>
                 </div>
             </div>
         </div>
