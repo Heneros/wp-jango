@@ -11,6 +11,7 @@ get_header();
         ) ); ?>
 
         <?php if ( $query->have_posts() ) : $i = 1; while ( $query->have_posts() ) : $query->the_post(); ?>
+
             <?php get_template_part('template-parts/content', 'preview'); ?>
 
             <?php $i++; endwhile; ?>
